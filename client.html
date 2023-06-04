@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Butterfly-Client</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body>
+    <div class="container-client">
+
+        <div class="header bg-green">
+            <img src="client/denr-logo.png" class="logo " alt="">
+            
+            <div class="dropdown">
+              <img src="client/UserProfile.png" class="usericon"alt="User Icon" id="user-icon">
+              <div class="dropdown-contents" id="dropdown-content">
+                <a href="clientprofile.html">Profile</a>
+                <a href="clientreport.html">Reports</a>
+                <a href="clientarchive.html">Archive</a>
+                <a href="#">Logout</a>
+              </div>
+            </div>
+            <h2 class="text-header ">Department of Environment and Natural Resources</h2>
+        </div>
+          <div class="navbar-space">
+            <nav id="navbar">
+
+                <a class="nav-link" href="client.html">Home</a>
+                <a class="nav-link" href="draft.html">Draft</a>
+                <a class="nav-link" href="submitted.html">Submitted</a>
+                <a class="nav-link" href="returned.html">Returned</a>
+                <a class="nav-link" href="accepted.html">Accepted</a>
+                <a class="nav-link" href="released.html">Released</a>
+                <a class="nav-link" href="expired.html">Expired</a>
+                <a class="nav-link" href="used.html">Used</a>
+                
+            </nav>
+          </div> 
+          <div>
+
+          </div>
+          <div class="bg-box">
+                <h3><span>Welcome  Client </span>Full Name</h3>
+                <h4>As of today, you have the following total number of applications/permits:</h4>
+
+          </div>
+          <div>
+
+            <a href="clientNewpermit.html"><button class="button">New Permit</button></a>
+          </div> 
+        
+        <main id="main-doc">
+
+            <section class="main-section">
+                          <div class="bg-box-2">
+                            <h3 class="draft">DRAFTS</h3>
+                            <p class="draft-text"># Record (s)</p>
+                            <img src="client/icon-draft.png" class="draft-icon"alt="">
+
+                          </div>
+                          
+                          <div class="bg-box-3">
+                            <h3 class="draft">SUBMITTED</h3>
+                            <p class="draft-text"># Record (s)</p>
+                            <img src="client/Vector.png" class="vector-icon"alt="">
+
+                          </div>
+                          <div class="bg-box-4">
+                            <h3 class="draft">RETURNED</h3>
+                            <p class="draft-text"># Record (s)</p>
+                            <img src="client/return.png" class="return-icon"alt="">
+
+                          </div>
+                          <div class="bg-box-5">
+                            <h3 class="draft">ACCEPTED</h3>
+                            <p class="draft-text"># Record (s)</p>
+                            <img src="client/accept.png" class="accept-icon"alt="">
+
+                          </div>
+                          <div class="bg-box-6">
+                            <h3 class="draft">RELEASED</h3>
+                            <p class="draft-text"># Record (s)</p>
+                            <img src="client/release.png" class="accept-icon"alt="">
+
+                          </div>
+                          <div class="bg-box-7">
+                            <h3 class="draft">EXPIRED</h3>
+                            <p class="draft-text"># Record (s)</p>
+                            <img src="client/expired.png" class="accept-icon"alt="">
+
+                          </div>
+                          <div class="bg-box-8">
+                            <h3 class="draft">USED</h3>
+                            <p class="draft-text"># Record (s)</p>
+                            <img src="client/used.png" class="accept-icon"alt="">
+
+                          </div>
+            </section>
+           
+
+        </main>
+
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+  var userIcon = document.getElementById('user-icon');
+  var dropdownContent = document.getElementById('dropdown-content');
+  
+  userIcon.addEventListener('click', function() {
+    dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+  });
+});
+
+    </script>
+
+    </body>
+
+</html>

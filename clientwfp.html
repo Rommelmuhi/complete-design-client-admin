@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Butterfly-Client</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body>
+    <div class="container-client">
+
+        <div class="header bg-green">
+            <img src="client/denr-logo.png" class="logo " alt="">
+            
+            <div class="dropdown">
+              <img src="client/UserProfile.png" class="usericon"alt="User Icon" id="user-icon">
+              <div class="dropdown-contents" id="dropdown-content">
+                <a href="clientprofile.html">Profile</a>
+                <a href="clientreport.html">Reports</a>
+                <a href="clientarchive.html">Archive</a>
+                <a href="#">Logout</a>
+              </div>
+            </div>
+            <h2 class="text-header ">Department of Environment and Natural Resources</h2>
+        </div>
+          <div class="navbar-space">
+            <nav id="navbar">
+
+                <a class="nav-link" href="client.html">Home</a>
+                <a class="nav-link" href="draft.html">Draft</a>
+                <a class="nav-link" href="submitted.html">Submitted</a>
+                <a class="nav-link" href="returned.html">Returned</a>
+                <a class="nav-link" href="accepted.html">Accepted</a>
+                <a class="nav-link" href="released.html">Released</a>
+                <a class="nav-link" href="expired.html">Expired</a>
+                <a class="nav-link" href="used.html">Used</a>
+                
+            </nav>
+              <div class="container-profile">
+                <a class="a-profile"href="clientprofile.html">Account Profile</a>
+                <a class="a-profile"href="clientwfp.html">Wildlife Farm Permit (WFP)</a>
+                <a class="a-profile"href="clientwcp.html">Wildlife Collector Permit (WCP)</a>
+            </div>
+            <div class="container-wfp">
+              <table id="permit-table">
+                  <tr>
+                      <th>Permit Number</th>
+                      <th>Business Name</th>
+                      <th>Owner's Name</th>
+                      <th>Address</th>
+                      <th>Date Issued</th>
+                      <th>Expiration Date</th>
+                      <th>Action</th>
+                  </tr>
+                  <tr>
+                      <td><input type="text" name="permitNumber"></td>
+                      <td><input type="text" name="businessName"></td>
+                      <td><input type="text" name="ownerName"></td>
+                      <td><input type="text" name="address"></td>
+                      <td><input type="datetime-local" name="dateTimeissued"></td>
+                      <td><input type="datetime-local" name="dateTimeExpiration"></td>
+                      <td>
+                          <div class="dropdown">
+                              <button class="button2" alt="Details button" id="details-btn">Details</button>
+                              <div class="dropdown-content-draft" id="details-dropdown">
+                                  <a class="details-view" href="#">View</a>
+                                  <a class="details-print" href="#">Print</a>
+                              </div>
+                          </div>
+                      </td>
+                  </tr>
+              </table>
+              <button class="btn-add" id="add-btn">Add</button>
+          </div> 
+      </div>
+  </div>
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var userIcon = document.getElementById('user-icon');
+          var dropdownContent = document.getElementById('dropdown-content');
+        
+          userIcon.addEventListener('click', function() {
+            dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+          });
+      });
+  
+      document.addEventListener('DOMContentLoaded', function () {
+          var detailsBtn = document.getElementById('details-btn');
+          var detailsDropdown = document.getElementById('details-dropdown');
+  
+          detailsBtn.addEventListener('click', function () {
+              detailsDropdown.style.display = (detailsDropdown.style.display === 'block') ? 'none' : 'block';
+          });
+      });
+  
+      var addButton = document.getElementById('add-btn');
+addButton.addEventListener('click', function () {
+    var permitTable = document.getElementById('permit-table');
+    var newRow = document.createElement('tr');
+    newRow.innerHTML = `
+        <td><input type="text" name="permitNumber"></td>
+        <td><input type="text" name="businessName"></td>
+        <td><input type="text" name="ownerName"></td>
+        <td><input type="text" name="address"></td>
+        <td><input type="datetime-local" name="dateTimeissued"></td>
+        <td><input type="datetime-local" name="dateTimeExpiration"></td>
+        <td>
+            <div class="dropdown">
+                <button class="button2" alt="Details button" id="details-btn-${permitTable.childElementCount}">Details</button>
+                <div class="dropdown-content-draft" id="details-dropdown-${permitTable.childElementCount}">
+                    <a class="details-view" href="#">View</a>
+                    <a class="details-print" href="#">Print</a>
+                </div>
+            </div>
+        </td>
+    `;
+    permitTable.appendChild(newRow);
+
+    var detailsBtn = document.getElementById(`details-btn-${permitTable.childElementCount}`);
+    var detailsDropdown = document.getElementById(`details-dropdown-${permitTable.childElementCount}`);
+
+    detailsBtn.addEventListener('click', function () {
+        detailsDropdown.style.display = (detailsDropdown.style.display === 'block') ? 'none' : 'block';
+    });
+});
+  </script>
+            
+
+    </body>
+
+</html>

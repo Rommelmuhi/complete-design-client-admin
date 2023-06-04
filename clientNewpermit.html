@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Butterfly-Client</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body>
+    <div class="containers-client">
+
+        <div class="header bg-green">
+            <img src="client/denr-logo.png" class="logo " alt="">
+            
+            <div class="dropdown">
+              <img src="client/UserProfile.png" class="usericon"alt="User Icon" id="user-icon">
+              <div class="dropdown-contents" id="dropdown-content">
+                <a href="clientprofile.html">Profile</a>
+                <a href="clientreport.html">Reports</a>
+                <a href="clientarchive.html">Archive</a>
+                <a href="#">Logout</a>
+              </div>
+            </div>
+            <h2 class="text-header ">Department of Environment and Natural Resources</h2>
+        </div>
+          <div class="navbar-space">
+            <nav id="navbars">
+
+                <a class="nav-link" href="client.html">Home</a>
+                <a class="nav-link" href="draft.html">Draft</a>
+                <a class="nav-link" href="submitted.html">Submitted</a>
+                <a class="nav-link" href="returned.html">Returned</a>
+                <a class="nav-link" href="accepted.html">Accepted</a>
+                <a class="nav-link" href="released.html">Released</a>
+                <a class="nav-link" href="expired.html">Expired</a>
+                <a class="nav-link" href="used.html">Used</a>
+                
+            </nav>
+          </div> 
+          <div>
+
+          </div>
+        
+        <main id="main-doc">
+
+            <section class="main-section">
+
+              <div class="form-containers">
+                <div class="bg-client">
+                <form>
+                  <div>
+                    <label class="center-permit">Application for New Permit</label>
+                  </div>
+                  <div class="client-firstname">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                  </div>
+                  <div>
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                  </div>
+                  <div>
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+                  </div>
+                  <div>
+                    <label for="transportAddress">Transport Address:</label>
+                    <input type="text" id="transportAddress" name="transportAddress" required>
+                  </div>
+                  <div>
+                    <label for="modeOfTransport">Mode of Transport:</label>
+                    <input type="text" id="modeoftransport" name="modeofTransport" required>
+                    
+                  </div>
+                  <div class="client-purpose">
+                    <label for="purposeOfTransport">Purpose of Transport:</label>
+                    <input type="text" id="purposeOfTransport" name="purposeOfTransport" required>
+                  </div>
+                  <div id="butterflyDetailsContainer">
+                    <div class="butterfly-container">
+                      <h3>Butterfly Details:</h3>
+                      <div>
+                        <label for="butterflyType">Type of Butterfly:</label>
+                        <select name="butterflyType" required>
+                          <option value="">Select a type</option>
+                          <option value="Common/specific">Mariposa/Attacuslorquini</option>
+                          <option value="Common/specific">decolores/CethosiaBiblis</option>
+                          <option value="Common/specific">kaykabayo/Danaus chrysippus</option>
+                          <option value="Common/specific">Kiwig/graphium agamemnon</option>
+                          <option value="Common/specific">glosipe/Hebomoia glaucippe</option>
+                          <option value="Common/specific">bolina/Hypolimnas bolina</option>
+                          <option value="Common/specific">leo/Idea Leuconoe</option>
+                          <option value="Common/specific">tandangan/Pachliopta Kotzebuea</option>
+                          <option value="Common/specific">demo/Papilio demoleus</option>
+                          <option value="Common/specific">lowii/Papilio lowii</option>
+                          <option value="Common/specific">berde/Papilio Palinurus</option>
+                          <option value="Common/specific">polytes/Papilio polytes</option>
+                          <option value="Common/specific">pabo/Papilio rumanzovia</option>
+                          <option value="Common/specific">badyo badyo/Parthenos Sylvia</option>
+                        </select>
+                        
+                        <label for="butterflyDescription">Description:</label>
+                        <input type="text" name="butterflyDescription" required>
+                        
+                        <label for="butterflyQuantity">Quantity:</label>
+                        <input type="number" name="butterflyQuantity" min="1" required>
+                      </div>
+                    </div>
+                  </div>
+                <div class="position-add">
+                  <input type="button" value="Add Butterfly" onclick="addButterflyDetails()">
+                </div>
+                  
+                  <div class="posistion-submit">
+                    <input type="submit" value="Submit">
+                  </div>
+                  <div class="position-draft">
+                    <input type="button" value="Draft">
+                  </div>
+                 
+                </form>
+                </div>
+              </div>
+                          
+                          
+            </section>
+           
+
+        </main>
+
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+  var userIcon = document.getElementById('user-icon');
+  var dropdownContent = document.getElementById('dropdown-content');
+  
+  userIcon.addEventListener('click', function() {
+    dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+  });
+});
+function addButterflyDetails() {
+      var container = document.getElementById("butterflyDetailsContainer");
+      
+      var butterflyContainer = document.createElement("div");
+      butterflyContainer.className = "butterfly-container";
+      
+      var heading = document.createElement("h3");
+      heading.textContent = "Butterfly Details:";
+      butterflyContainer.appendChild(heading);
+      
+      var detailsDiv = document.createElement("div");
+      
+      var typeLabel = document.createElement("label");
+      typeLabel.textContent = "Type of Butterfly:";
+      detailsDiv.appendChild(typeLabel);
+      
+      var typeSelect = document.createElement("select");
+      typeSelect.name = "butterflyType";
+      typeSelect.required = true;
+      var option1 = document.createElement("option");
+      option1.value = "";
+      option1.textContent = "Select a type";
+      var option2 = document.createElement("option");
+      option2.value = "Common/specific";
+      option2.textContent = "Mariposa/Attacus lorquini";
+      var option3 = document.createElement("option");
+      option3.value = "Common/specific";
+      option3.textContent = "decolores/Cethosia Biblis";
+      var option4 = document.createElement("option");
+      option4.value = "Common/specific";
+      option4.textContent = "kaykabayo/Danaus chrysippus";
+      var option5 = document.createElement("option");
+      option5.value = "Common/specific";
+      option5.textContent = "kiwig/Graphium argamemnon";
+      var option6 = document.createElement("option");
+      option6.value = "Common/specific";
+      option6.textContent = "glosipe/Hebomoia glaucippe";
+      var option7 = document.createElement("option");
+      option7.value = "Common/specific";
+      option7.textContent = "bolina/Hypolimnas bolina";
+      var option8 = document.createElement("option");
+      option8.value = "Common/specific";
+      option8.textContent = "leo/Idea Leuconoe";
+      var option9 = document.createElement("option");
+      option9.value = "Common/specific";
+      option9.textContent = "tandangan/Pachliopta Kotzebuea";
+      var option10 = document.createElement("option");
+      option10.value = "Common/specific";
+      option10.textContent = "demo/Papilio demoleus";
+      var option11 = document.createElement("option");
+      option11.value = "Common/specific";
+      option11.textContent = "lowii/Papilio lowii";
+      var option12 = document.createElement("option");
+      option12.value = "Common/specific";
+      option12.textContent = "berde/Papilio Palinurus";
+      var option13 = document.createElement("option");
+      option13.value = "Common/specific";
+      option13.textContent = "polytes/Papilio polytes";
+      var option14 = document.createElement("option");
+      option14.value = "Common/specific";
+      option14.textContent = "pabo/Papilio rumanzovia";
+      var option15 = document.createElement("option");
+      option15.value = "Common/specific";
+      option15.textContent = "badyo badyo/Parthenos Sylvia";
+      
+
+
+      typeSelect.appendChild(option1);
+      typeSelect.appendChild(option2);
+      typeSelect.appendChild(option3);
+      typeSelect.appendChild(option4);
+      typeSelect.appendChild(option5);
+      typeSelect.appendChild(option6);
+      typeSelect.appendChild(option7);
+      typeSelect.appendChild(option8);
+      typeSelect.appendChild(option9);
+      typeSelect.appendChild(option10);
+      typeSelect.appendChild(option11);
+      typeSelect.appendChild(option12);
+      typeSelect.appendChild(option13);
+      typeSelect.appendChild(option14);
+      typeSelect.appendChild(option15);
+    
+      detailsDiv.appendChild(typeSelect);
+      
+      var descriptionLabel = document.createElement("label");
+      descriptionLabel.textContent = "Description:";
+      detailsDiv.appendChild(descriptionLabel);
+      
+      var descriptionInput = document.createElement("input");
+      descriptionInput.type = "text";
+      descriptionInput.name = "butterflyDescription";
+      descriptionInput.required = true;
+      detailsDiv.appendChild(descriptionInput);
+      
+      var quantityLabel = document.createElement("label");
+      quantityLabel.textContent = "Quantity:";
+      detailsDiv.appendChild(quantityLabel);
+      
+      var quantityInput = document.createElement("input");
+      quantityInput.type = "number";
+      quantityInput.name = "butterflyQuantity";
+      quantityInput.min = "1";
+      quantityInput.required = true;
+      detailsDiv.appendChild(quantityInput);
+      
+      butterflyContainer.appendChild(detailsDiv);
+      container.appendChild(butterflyContainer);
+    }
+
+    </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Butterfly-Client</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body>
+    <div class="container-client">
+
+        <div class="header bg-green">
+            <img src="client/denr-logo.png" class="logo " alt="">
+            
+            <div class="dropdown">
+              <img src="client/UserProfile.png" class="usericon"alt="User Icon" id="user-icon">
+              <div class="dropdown-contents" id="dropdown-content">
+                <a href="clientprofile.html">Profile</a>
+                <a href="clientreport.html">Reports</a>
+                <a href="clientarchive.html">Archive</a>
+                <a href="#">Logout</a>
+              </div>
+            </div>
+            <h2 class="text-header ">Department of Environment and Natural Resources</h2>
+        </div>
+          <div class="navbar-space">
+            <nav id="navbar">
+
+                <a class="nav-link" href="client.html">Home</a>
+                <a class="nav-link" href="draft.html">Draft</a>
+                <a class="nav-link" href="submitted.html">Submitted</a>
+                <a class="nav-link" href="returned.html">Returned</a>
+                <a class="nav-link" href="accepted.html">Accepted</a>
+                <a class="nav-link" href="released.html">Released</a>
+                <a class="nav-link" href="expired.html">Expired</a>
+                <a class="nav-link" href="used.html">Used</a>
+                
+            </nav>
+              <div class="container-profile">
+                <a class="a-profile"href="clientprofile.html">Account Profile</a>
+                <a class="a-profile"href="clientwfp.html">Wildlife Farm Permit (WFP)</a>
+                <a class="a-profile"href="clientwcp.html">Wildlife Collector Permit (WCP)</a>
+            </div>         
+            <div class="account-profile">
+              <div class="user-info">
+                  <label for="firstname">First Name:</label>
+                  <input type="text" id="firstname">
+          
+                  <label for="lastname">Last Name:</label>
+                  <input type="text" id="lastname">
+          
+                  <label for="email">Email:</label>
+                  <input type="email" id="email">
+          
+                  <label for="address">Address:</label>
+                  <input type="text" id="address">
+          
+                  <label for="contact">Contact Number:</label>
+                  <input type="tel" id="contact">
+          
+                  <label for="password">Password:</label>
+                  <input type="password" id="password">
+              </div>
+          
+              <div class="profile-picture">
+                <div>
+                  <input type="file" accept="image/*" id="profile-image" onchange="loadProfileImage(event)">
+                </div>
+                  
+                  <div>
+                    <img id="preview-image" src="#" alt="Profile Picture">
+                  </div>
+                  
+              </div>
+          
+              <div class="buttons">
+                <div class="btn-cancel">
+                  <button  type="button">Cancel</button>
+                </div>
+                  <button type="button">Update</button>
+              </div>
+             
+          </div>
+          </div>
+          
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+  var userIcon = document.getElementById('user-icon');
+  var dropdownContent = document.getElementById('dropdown-content');
+  
+  userIcon.addEventListener('click', function() {
+    dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+  });
+});
+function loadProfileImage(event) {
+        var image = document.getElementById('preview-image');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    }
+
+    </script>
+
+    </body>
+
+</html>
